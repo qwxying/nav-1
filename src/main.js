@@ -5,16 +5,32 @@ const xObject = JSON.parse(x);
 
 const hashMap = xObject || [
   {
-    logo: "A",
-    url: "https://www.acfun.cn",
-  },
-  {
-    logo: "B",
-    url: "https://www.bilibili.com",
+    logo: "X",
+    url: "https://xiedaimala.com/courses/16644d89-6b17-4c2f-ac15-dabb994b7696#/study/tasks",
   },
   {
     logo: "C",
-    url: "https://tucao.one",
+    url: "https://caniuse.com/",
+  },
+  {
+    logo: "F",
+    url: "https://www.figma.com/files/recent",
+  },
+  {
+    logo: "I",
+    url: "https://www.iconfont.cn/",
+  },
+  {
+    logo: "J",
+    url: "http://js.jirengu.com/",
+  },
+  {
+    logo: "M",
+    url: "https://free.modao.cc/",
+  },
+  {
+    logo: "W",
+    url: "http://wangdoc.com/",
   },
 ];
 
@@ -40,10 +56,12 @@ const simplifyUrl = (url) => {
     .replace("https://", "")
     .replace("http://", "")
     .replace("www.", "")
+    .replace("free.", "")
     .replace(".com", "")
     .replace(".cn", "")
     .replace(".one", "")
     .replace(".io", "")
+    .replace(".cc", "")
     .replace(/\/.*/, ""); //删除以/开头的内容
 };
 
@@ -56,7 +74,7 @@ const render = () => {
               <div class="site">
                   <div class="logo">${node.logo}</div>
                   <div class="link">${simplifyUrl(node.url)}</div>
-                  <div class="close">x</div>
+                  <div class="close">—</div>
               </div>
           </li>
         `).insertBefore($lastLi);
@@ -75,10 +93,10 @@ render();
 
 addNewLink();
 
-window.onbeforeunload = () => {
-  const string = JSON.stringify(hashMap);
-  localStorage.setItem("x", string);
-};
+// window.onbeforeunload = () => {
+//   const string = JSON.stringify(hashMap);
+//   localStorage.setItem("x", string);
+// };
 
 $(document).on("keypress", (e) => {
   const { key } = e;
