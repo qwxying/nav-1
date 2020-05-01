@@ -64,7 +64,8 @@ body {
 .siteList .site {
   border: 1px solid #ddd;
   width: 160px;
-  height: 140px;/*实际效果高度有误差，故固定了高度*/
+  height: 140px;
+  /*实际效果高度有误差，故固定了高度*/
   display: flex;
   justify-content: center;
   flex-direction: column;
